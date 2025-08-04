@@ -10,7 +10,7 @@ void lsm6dsv16x_test(void) {
 	extern float lsm6dsv16x_pitch, lsm6dsv16x_roll, lsm6dsv16x_yaw;
 	while(1) {
 			Read_LSM6DSV16X();
-			log_i("%.2lf,%.2lf,%.2lf\n", lsm6dsv16x_yaw, lsm6dsv16x_roll, lsm6dsv16x_pitch);
+			usart_printf(UART_0_INST, "%.2lf,%.2lf,%.2lf\n", lsm6dsv16x_yaw, lsm6dsv16x_roll, lsm6dsv16x_pitch);
 			delay_ms(10);
 	}
 

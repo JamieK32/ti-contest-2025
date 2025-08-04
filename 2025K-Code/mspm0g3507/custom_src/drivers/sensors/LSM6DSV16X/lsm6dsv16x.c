@@ -10,7 +10,7 @@
 #define I2C_TIMEOUT_MS    (10)
 #define RAD_TO_DEG        (180.0f / M_PI)
 
-#define LSM6DSV16X_ADDR   (0x6A)
+#define LSM6DSV16X_ADDR   (0x6B)
 
 // 使用你的全局软件I2C实例
 soft_iic_info_struct lsm6dsv16x_i2c = {
@@ -20,8 +20,8 @@ soft_iic_info_struct lsm6dsv16x_i2c = {
     .sdaIOMUX = PORTA_SDA2_IOMUX,
     .sdaPin = PORTA_SDA2_PIN,
     .sdaPort = PORTA_PORT,
-    .delay_time = 1,
-    .addr = 0x6A  // LSM6DSV16X地址
+    .delay_time = 0,
+    .addr = LSM6DSV16X_ADDR  // LSM6DSV16X地址
 };
 static uint8_t whoamI;
 static lsm6dsv16x_fifo_sflp_raw_t fifo_sflp;

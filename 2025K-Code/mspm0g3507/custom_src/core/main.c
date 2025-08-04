@@ -166,7 +166,7 @@ void main_task_init(void)
 
 void test_task(void) 
 {	
-	motor_test();
+	lsm6dsv16x_test();
 }
 
 int main(void) 

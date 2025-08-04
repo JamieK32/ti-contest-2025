@@ -17,4 +17,6 @@ void vl53l1_test(void);
 void no_mcu_ganv_test(void);
 // 摄像头协议测试
 int cam_test(void);
+// lsm6dsv16x 测试
+void lsm6dsv16x_test(void);
 #endif
