@@ -1,5 +1,4 @@
-#include "common_defines.h"
-#if (CURRENT_TASK_TYPE == TASK_TYPE_25K)
+
 #include "common_include.h"
 #include "periodic_event_task.h"
 #include "log.h"
@@ -41,4 +40,3 @@ period_task_t task_table[] = {
 void init_task_table(void) {
 	init_task_scheduler(task_table, sizeof(task_table) / sizeof(task_table[0]));
 }
-#endif 

@@ -1,9 +1,7 @@
-#include "task21f_config.h"
+#include "task25k_config.h"
 #include "common_include.h"
 //#include "log_config.h"
 #include "log.h"
-
-#if (CURRENT_TASK_TYPE == TASK_TYPE_25K)
 
 maixCam_t maix_cam;
 
@@ -57,4 +55,3 @@ void setup_cam_protocol(void) {
     log_i("Camera protocol initialized");
 }
 
-#endif

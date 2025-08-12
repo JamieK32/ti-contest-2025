@@ -19,13 +19,12 @@ typedef struct maixCam_t {
 void init_task_table(void);
 void menu_init_and_create(void);
 
-#define NO_IMU 0
+#define NO_GYRO 0
 #define WIT_GYRO 1
 #define MPU6050_GYRO 2
 #define IMU660RA_GYRO 3
 
 #define CURRENT_IMU WIT_GYRO
-#define USE_ANGLE_SENSOR 1
 
 void setup_cam_protocol(void);
 extern maixCam_t maix_cam;

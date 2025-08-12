@@ -113,10 +113,11 @@
  * 芯片: MSPM0G3507 (Arm Cortex-M0+, 80MHz)
  */
  
-#include "common_defines.h"
+
 #include "common_include.h"
 #include "log_config.h" // 日志配置
 #include "log.h"
+#include "task25k_config.h"
 
 void system_init(void) 
 {
@@ -142,18 +143,9 @@ void main_task_init(void)
 	
 #endif
 
-#if (CURRENT_TASK_TYPE == TASK_TYPE_24H)
-		
-#elif (CURRENT_TASK_TYPE == TASK_TYPE_22C)
-		VL53L1_Read_Init();
-		bluetooth_init();
-#elif (CURRENT_TASK_TYPE == TASK_TYPE_21F)
 		camera_init();
     setup_cam_protocol();
-#elif (CURRENT_TASK_TYPE == TASK_TYPE_25K)
-		camera_init();
-    setup_cam_protocol();
-#endif
+
 			
 		menu_init_and_create();
 	

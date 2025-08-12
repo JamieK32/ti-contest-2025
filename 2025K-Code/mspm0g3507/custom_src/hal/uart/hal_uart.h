@@ -6,7 +6,6 @@
 #include "stdarg.h"
 #include "stdio.h"
 #include "string.h"
-#include "common_defines.h"
 
 #define MAX_TX_BUFFER_SIZE 256
 

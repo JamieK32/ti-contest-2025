@@ -454,11 +454,6 @@
           </GroupOption>
           <Files>
             <File>
-              <FileName>common_defines.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\custom_src\core\config\common_defines.h</FilePath>
-            </File>
-            <File>
               <FileName>common_include.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\custom_src\core\config\common_include.h</FilePath>
@@ -542,86 +537,6 @@
             </GroupArmAds>
           </GroupOption>
           <Files>
-            <File>
-              <FileName>task24h_config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\custom_src\application\task_2024h\task24h_config.h</FilePath>
-            </File>
-            <File>
-              <FileName>task24h_mission_table.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\custom_src\application\task_2024h\task24h_mission_table.c</FilePath>
-            </File>
-            <File>
-              <FileName>task24h_ui_app.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\custom_src\application\task_2024h\task24h_ui_app.c</FilePath>
-            </File>
-            <File>
-              <FileName>task24h_car_controller.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\custom_src\application\task_2024h\task24h_car_controller.c</FilePath>
-            </File>
-            <File>
-              <FileName>task24h_car_pid_parameter.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\custom_src\application\task_2024h\task24h_car_pid_parameter.c</FilePath>
-            </File>
-            <File>
-              <FileName>task22c_config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\custom_src\application\task_2022c\task22c_config.h</FilePath>
-            </File>
-            <File>
-              <FileName>task22c_car_controller.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\custom_src\application\task_2022c\task22c_car_controller.c</FilePath>
-            </File>
-            <File>
-              <FileName>task22c_car_pid_parameter.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\custom_src\application\task_2022c\task22c_car_pid_parameter.c</FilePath>
-            </File>
-            <File>
-              <FileName>task22c_ui_app.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\custom_src\application\task_2022c\task22c_ui_app.c</FilePath>
-            </File>
-            <File>
-              <FileName>task22c_mission_table.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\custom_src\application\task_2022c\task22c_mission_table.c</FilePath>
-            </File>
-            <File>
-              <FileName>task22c_bluetooth_app.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\custom_src\application\task_2022c\task22c_bluetooth_app.c</FilePath>
-            </File>
-            <File>
-              <FileName>task21f_cam_app.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\custom_src\application\task_2021f\task21f_cam_app.c</FilePath>
-            </File>
-            <File>
-              <FileName>task21f_car_controller.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\custom_src\application\task_2021f\task21f_car_controller.c</FilePath>
-            </File>
-            <File>
-              <FileName>task21f_car_pid_parameter.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\custom_src\application\task_2021f\task21f_car_pid_parameter.c</FilePath>
-            </File>
-            <File>
-              <FileName>task21f_mission_table.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\custom_src\application\task_2021f\task21f_mission_table.c</FilePath>
-            </File>
-            <File>
-              <FileName>task21f_ui_app.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\custom_src\application\task_2021f\task21f_ui_app.c</FilePath>
-            </File>
             <File>
               <FileName>task25k_config.h</FileName>
               <FileType>5</FileType>

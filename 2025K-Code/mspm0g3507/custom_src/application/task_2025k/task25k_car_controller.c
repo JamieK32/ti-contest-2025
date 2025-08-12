@@ -1,5 +1,4 @@
-#include "common_defines.h"
-#if (CURRENT_TASK_TYPE == TASK_TYPE_25K)
+#include "task25k_config.h"
 #include "car_controller.h"
 #include "attitude_algorithm.h"
 
@@ -84,7 +83,7 @@ bool spin_turn(float angle) {
         car_reset();
     }
     
-    #if USE_ANGLE_SENSOR
+    #if CURRENT_IMU != NO_GYRO
     float current_angle = get_yaw();
     float angle_error = calculate_angle_error(car.target_angle, current_angle);
     if (fabsf(angle_error) <= ANGLE_THRESHOLD_DEG) {
@@ -219,7 +218,7 @@ void update_straight_control(void)
                                      &mileagePid);          // cm/s
 
     /*--------- 2. 角度 PID（输出修正量） ---------*/
-#if USE_ANGLE_SENSOR
+#if CURRENT_IMU != NO_GYRO
 		float yaw_err   = calculate_angle_error(car.target_angle, get_yaw());
     float correction = PID_Calculate(0.0f, 
                                      yaw_err,  
@@ -249,7 +248,7 @@ void update_track_control(void) {
 
 
 void update_turn_control(void) {
-    #if USE_ANGLE_SENSOR
+    #if CURRENT_IMU != NO_GYRO
         float current_angle = get_yaw();
         float angle_error = calculate_angle_error(car.target_angle, current_angle);
         float output = PID_Calculate(0.0f, 
@@ -457,4 +456,3 @@ static const uint16_t stop_mark_table_8bit[] = {
 
 static const uint8_t STOP_MARK_TABLE_SIZE = (sizeof(stop_mark_table_8bit) / sizeof(stop_mark_table_8bit[0]));
 
-#endif

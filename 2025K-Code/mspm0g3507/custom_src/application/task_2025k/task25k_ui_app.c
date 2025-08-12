@@ -1,6 +1,4 @@
-#include "common_defines.h"
-#if (CURRENT_TASK_TYPE == TASK_TYPE_25K)
-#include "task21f_config.h"
+#include "task25k_config.h"
 #include "ui.h"
 #include "log_config.h"
 #include "log.h"
@@ -304,4 +302,3 @@ void menu_init_and_create(void) {
     create_oled_menu(&main_menu);
 }
 
-#endif
