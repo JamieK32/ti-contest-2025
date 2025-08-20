@@ -139,8 +139,8 @@ void main_task_init(void)
 #elif (CURRENT_IMU == IMU660RA_GYRO)
 		extern Attitude_module attitude;
 		init_attitude(&attitude, 0.005f);
-#else
-	
+#elif (CURRENT_IMU == LSM6DSV16X_GYRO)
+		LSM6DSV16X_Init();
 #endif
 
 		camera_init();

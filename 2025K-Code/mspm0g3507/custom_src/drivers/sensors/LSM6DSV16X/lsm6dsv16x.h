@@ -25,5 +25,6 @@ extern float pitch, roll, yaw;
 
 void LSM6DSV16X_Init(void);
 void Read_LSM6DSV16X(void);
+void LSM6DSV16X_RezeroYaw(void);
 
 #endif  /* #ifndef _LSM6DSV16X_H_ */

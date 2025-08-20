@@ -50,6 +50,7 @@ void add_send_and_wait(void (*send_func)(void), bool (*wait_func)(void)) {
 
 // 简化的setup函数
 static void setup_base_part1(void) {
+	LSM6DSV16X_RezeroYaw();
 	car_path_init();
 	car_add_straight(240);
 	car_add_turn(90.0f);
@@ -60,6 +61,7 @@ static void setup_base_part1(void) {
 }
 
 static void setup_base_part2(void) {
+		LSM6DSV16X_RezeroYaw();
     car_path_init();
 		car_add_straight(70);
 		car_add_turn(46);
@@ -74,43 +76,47 @@ static void setup_base_part2(void) {
 }
 
 static void setup_base_part3(void) {
+		LSM6DSV16X_RezeroYaw();
     car_path_init();
 		car_add_straight(115);
-		car_add_circle(35, true, 270);  // 半径20cm，逆时针
+		car_add_circle(30, true, 270);  // 半径20cm，逆时针
 		car_add_float(&car.target_angle, 90);
 		car_add_straight(44);
-		car_add_circle(38, true, 360); 
+		car_add_circle(30, true, 360); 
 		car_add_float(&car.target_angle, 0);
 		car_add_straight(205);
     car_set_loop(1);
 }
 
+
 static void setup_play_part1(void) {
+		LSM6DSV16X_RezeroYaw();
 		car_path_init();                                    // 初始化路径规划
-		car_add_straight(90);
-		car_add_turn(90.0f);
-		car_add_straight(95);
-		car_add_turn(0.0f);
-		car_add_straight(100);
-		car_add_turn(-90.0f);
-		car_add_straight(42);
-		car_add_turn(0.0f);
-		car_add_straight(100);
+		car_add_straight(84);
+		car_add_float(&car.target_angle, 90);
+		car_add_straight(105);
+		car_add_float(&car.target_angle, 0);
+		car_add_straight(106);
+		car_add_float(&car.target_angle, -90);
+		car_add_straight(52);
+		car_add_float(&car.target_angle, 0);
+		car_add_straight(120);
     car_set_loop(1);
 }
+
 
 void play_part2_path1(void) {
   	car_add_straight(87);
 		car_add_turn(90.0f);
-		car_add_straight(45);
+		car_add_straight(50);
 	  car_add_turn(0.0f);
-		car_add_straight(48);
+		car_add_straight(53);
 	  car_add_turn(90.0f);
 		car_add_straight(50);
     car_add_turn(0.0f);
 		car_add_straight(95);
     car_add_float(&car.target_angle,-90.0f);
-		car_add_straight(60);
+		car_add_straight(55);
 	  car_add_float(&car.target_angle,0.0f);
 		car_add_straight(70);  
 }
@@ -123,7 +129,7 @@ void play_part2_path2(void) {
 		car_add_turn(-90.0f);
 		car_add_straight(50);
 		car_add_turn(0.0f);
-		car_add_straight(90); 
+		car_add_straight(100); 
 }
 
 void play_part2_path3(void) {
@@ -147,7 +153,7 @@ void play_part2_path4(void) {
 		car_add_turn(90.0f);
 		car_add_straight(50);
 		car_add_turn(0.0f);
-		car_add_straight(50);
+		car_add_straight(55);
 	  car_add_float(&car.target_angle,90.0f);
 		car_add_straight(57);
 	  car_add_float(&car.target_angle, 0);
@@ -193,9 +199,39 @@ void task5_func(void) {
 
 
 static void setup_play_part2(void) {
+		LSM6DSV16X_RezeroYaw();
     car_path_init();
 		add_send_and_wait(send_start_cmd, wait_cam_cmd);  // 使用封装
     car_add_function(task5_func);
+    car_set_loop(1);
+}
+
+
+static void test01(void) {
+		LSM6DSV16X_RezeroYaw();
+    car_path_init();
+		play_part2_path1();
+    car_set_loop(1);
+}
+
+static void test02(void) {
+		LSM6DSV16X_RezeroYaw();
+    car_path_init();
+		play_part2_path2();
+    car_set_loop(1);
+}
+
+static void test03(void) {
+		LSM6DSV16X_RezeroYaw();
+    car_path_init();
+		play_part2_path3();
+    car_set_loop(1);
+}
+
+static void test04(void) {
+		LSM6DSV16X_RezeroYaw();
+    car_path_init();
+		play_part2_path4();
     car_set_loop(1);
 }
 
@@ -232,6 +268,23 @@ static void run_play_part02_cb(void *arg) {
     run_task("Play Part 02", &task_running_flag, setup_play_part2);
 }
 
+static void run_test1_cb(void *arg) {
+    run_task("TEST 01", &task_running_flag, test01);
+}
+
+static void run_test2_cb(void *arg) {
+    run_task("TEST 02", &task_running_flag, test02);
+}
+
+static void run_test3_cb(void *arg) {
+    run_task("TEST 03", &task_running_flag, test03);
+}
+
+static void run_test4_cb(void *arg) {
+    run_task("TEST 04", &task_running_flag, test04);
+}
+
+
 static void play_music_1_cb(void *arg) {
 	show_message("Play Music1");
 	music_player_start(music_example_1, music_example_1_size);
@@ -251,7 +304,9 @@ static void stop_music_cb(void *arg) {
 	extern float yaw, roll, pitch;
 #elif (CURRENT_IMU == IMU660RA_GYRO)
 extern Attitude_module attitude;
-#endif
+#elif (CURRENT_IMU == LSM6DSV16X_GYRO)
+extern float lsm6dsv16x_pitch, lsm6dsv16x_roll, lsm6dsv16x_yaw;
+#endif 
 
 static menu_variable_t gyro_vars[] = {
 #if CURRENT_IMU == WIT_GYRO
@@ -263,11 +318,14 @@ static menu_variable_t gyro_vars[] = {
 		MENU_VAR_READONLY("Pitch", &pitch, VAR_TYPE_FLOAT),
 		MENU_VAR_READONLY("Roll", &roll, VAR_TYPE_FLOAT),
 #elif (CURRENT_IMU == IMU660RA_GYRO)
-
 		MENU_VAR_READONLY("Yaw", &attitude.pose_module.data.yaw, VAR_TYPE_FLOAT),
 		MENU_VAR_READONLY("Pitch", &attitude.pose_module.data.pit, VAR_TYPE_FLOAT),
 		MENU_VAR_READONLY("Roll", &attitude.pose_module.data.rol, VAR_TYPE_FLOAT),
-#endif 
+#elif (CURRENT_IMU == LSM6DSV16X_GYRO)
+		MENU_VAR_READONLY("Yaw", &lsm6dsv16x_yaw, VAR_TYPE_FLOAT),
+		MENU_VAR_READONLY("Pitch", &lsm6dsv16x_pitch, VAR_TYPE_FLOAT),
+		MENU_VAR_READONLY("Roll", &lsm6dsv16x_roll, VAR_TYPE_FLOAT),
+#endif
 		MENU_VAR_END
 };
 
@@ -290,6 +348,12 @@ void menu_init_and_create(void) {
 		ADD_ACTION(tasks1_menu, _25_task3, "Run Base Part3", run_base_part03_cb);
 		ADD_ACTION(tasks1_menu, _25_task4, "Run Play Part1", run_play_part01_cb);
 		ADD_ACTION(tasks1_menu, _25_task5, "Run Play Part2", run_play_part02_cb);
+	
+		ADD_SUBMENU(main_menu,	test_menu, "Run 25K TEST", NULL);
+		ADD_ACTION(test_menu, _25_test1, "Run TEST 01", run_test1_cb);
+		ADD_ACTION(test_menu, _25_test2, "Run TEST 02", run_test2_cb);
+		ADD_ACTION(test_menu, _25_test3, "Run TEST 03", run_test3_cb);
+		ADD_ACTION(test_menu, _25_test4, "Run TEST 04", run_test4_cb);
 	
 		ADD_SUBMENU(main_menu, PlayMusic, "Play Music", NULL);
 		ADD_ACTION(PlayMusic, music1, "ChunRiYing", play_music_1_cb);

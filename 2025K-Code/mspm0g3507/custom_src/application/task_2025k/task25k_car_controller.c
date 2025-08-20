@@ -4,11 +4,11 @@
 
 #define MAX_DISTANCE 						255
 #define DISTANCE_THRESHOLD_CM 	1
-#define ANGLE_THRESHOLD_DEG		  1
+#define ANGLE_THRESHOLD_DEG		  6
 #define TRACK_DEFAULT_SPEED 		35
 #define DETECTED_WHITE_COUNT		2
 #define ARC_LENGTH 							120
-#define CIRCLE_SPEED 						60
+#define CIRCLE_SPEED 						70
 
 // 定义 encoder 结构体实例
 encoder_t encoder = {0};
@@ -32,6 +32,9 @@ float get_yaw(void) {
 #elif CURRENT_IMU == IMU660RA_GYRO
 		extern Attitude_module attitude;
 		return attitude.pose_module.data.yaw;
+#elif (CURRENT_IMU == LSM6DSV16X_GYRO)
+		extern float lsm6dsv16x_yaw;
+		return lsm6dsv16x_yaw;
 #endif 
 }
 

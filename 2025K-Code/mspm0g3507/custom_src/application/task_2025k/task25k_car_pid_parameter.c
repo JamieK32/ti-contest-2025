@@ -21,16 +21,16 @@ void speed_pid_init(void) {
 /* ------------ 里程 PID ------------ */
 void mileage_pid_init(void) {
 	PID_Init(&mileagePid, PID_TYPE_POSITION);    
-	PID_SetParams(&mileagePid, 5.0, 0.4, 0.0); 
-	PID_SetOutputLimit(&mileagePid, 76.0, -76.0); 
-	PID_SetIntegralLimit(&mileagePid, 76.0, -76.0);
+	PID_SetParams(&mileagePid, 6.0, 0.4, 0.0); 
+	PID_SetOutputLimit(&mileagePid, 85.0, -85.0); 
+	PID_SetIntegralLimit(&mileagePid, 85.0, -85.0);
 	PID_SetIntegralSeparation(&mileagePid, 5);
 }
 
 /* ------------ 直行 PID ------------ */
 void straight_pid_init(void) {
 	PID_Init(&straightPid, PID_TYPE_POSITION);    
-	PID_SetParams(&straightPid, 2.9, 0.0, 0.7);  
+	PID_SetParams(&straightPid, 4.0, 0.0, 0.7);  
 	PID_SetOutputLimit(&straightPid,75.0, -75.0); 
 }
 

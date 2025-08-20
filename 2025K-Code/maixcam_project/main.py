@@ -1,6 +1,6 @@
 # main.py
 from maix import camera, display, app, image
-from cylinder_detector import SimpleCylinderDetector
+from cylinder_detector import LABReliableDetector
 from uart import CamComm
 
 # 颜色定义
@@ -9,7 +9,7 @@ WHITE = image.Color.from_rgb(255, 255, 255)
 cam = camera.Camera(480, 320)
 disp = display.Display()
 comm = CamComm()
-detector = SimpleCylinderDetector()
+detector = LABReliableDetector()
 mode = None
 
 def show_roi_preview(img):

@@ -1,0 +1,10 @@
+id: jamiek01
+name: 国赛一等奖
+version: 1.0.1
+author: JamieK
+icon: app.png
+desc: 无
+files:
+  - cylinder_detector.py
+  - main.py
+  - uart.py

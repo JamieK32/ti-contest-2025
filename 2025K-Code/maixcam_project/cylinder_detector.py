@@ -10,47 +10,59 @@ class LABReliableDetector:
     def __init__(self):
         self.rois = [
             (30, 31, 17, 50),   # 1,1
-            (142, 21, 16, 35),  # 1,3
-            (197, 10, 15, 63),  # 2,1
-            (362, 9, 10, 42),  # 3,3
-            (410, 8, 17, 60),   # 3,1
-            (377, 15, 14, 36)   # 3,2
+            (147, 23, 7, 37),  # 1,3
+            (201, 10, 15, 63),  # 2,1
+            (362, 21, 11, 34),  # 3,3
+            (414, 8, 17, 60),   # 3,1
+            (386, 15, 9, 43)   # 3,2
         ]
         
-        self.last_results = [[0, 0, 0] for _ in range(6)]
+        self.last_results = [[0, 0, 0, 0, 0] for _ in range(6)]  # 扩大到5帧
         self.frame_idx = 0
         
         # LAB阈值设置 (L_min, L_max, A_min, A_max, B_min, B_max)
-        # 只需要黑色LAB范围，不是黑色就是白色
-        self.black_lab_threshold = (0, 6, -128, 127, -128, 127)
+        # 放宽L值范围以提高检测率
+        self.black_lab_threshold = (0, 25, -128, 127, -128, 127)
+        
+        # 动态参数配置
+        self.roi_configs = [
+            {"pixels_threshold": 20, "area_threshold": 15, "black_threshold": 0.6},  # ROI 0: 17x50
+            {"pixels_threshold": 15, "area_threshold": 12, "black_threshold": 0.6}, # ROI 1: 16x35
+            {"pixels_threshold": 25, "area_threshold": 20, "black_threshold": 0.6}, # ROI 2: 15x63
+            {"pixels_threshold": 10, "area_threshold": 8, "black_threshold": 0.6},   # ROI 3: 11x34
+            {"pixels_threshold": 25, "area_threshold": 20, "black_threshold": 0.6}, # ROI 4: 17x60
+            {"pixels_threshold": 8, "area_threshold": 6, "black_threshold": 0.6}   # ROI 5: 9x43
+        ]
+        
+
 
     def detect(self, img):
         colors = []
         
         for i, (x, y, w, h) in enumerate(self.rois):
             try:
-                # 只检测黑色blobs
+                # 获取当前ROI的动态参数
+                config = self.roi_configs[i]
+                
+                # 使用动态参数的blob检测
                 black_blobs = img.find_blobs([self.black_lab_threshold], 
                                            roi=(x, y, w, h),
-                                           pixels_threshold=10,
-                                           area_threshold=10,
+                                           pixels_threshold=config["pixels_threshold"],
+                                           area_threshold=config["area_threshold"],
                                            merge=True)
                 
-                # 计算黑色区域占比
                 roi_area = w * h
                 black_area = sum([blob.pixels() for blob in black_blobs]) if black_blobs else 0
                 black_ratio = black_area / roi_area
-                
-                # 判断颜色类型：只需要判断是否为黑色
-                black_threshold = 0.25 # 黑色占比阈值
+                black_threshold = config["black_threshold"]
                 
                 if black_ratio > black_threshold:
                     current_result = 1  # 黑色柱子
                 else:
                     current_result = 0  # 白色柱子（不是黑色就是白色）
                 
-                # 时间滤波
-                self.last_results[i][self.frame_idx % 3] = current_result
+                # 时间滤波 - 使用5帧
+                self.last_results[i][self.frame_idx % 5] = current_result
                 
                 # 获取最终结果（众数）
                 result_counts = [0, 0, 0]  # [黑色, 白色, 未知]
@@ -97,6 +109,7 @@ class LABReliableDetector:
         
         return colors
 
+
     def update_lab_thresholds(self, black_threshold=None):
         """动态调整LAB阈值
         Args:
@@ -109,7 +122,9 @@ class LABReliableDetector:
         """获取检测统计信息"""
         return {
             'black_lab_threshold': self.black_lab_threshold,
-            'roi_count': len(self.rois)
+            'roi_count': len(self.rois),
+            'roi_configs': self.roi_configs,
+            'time_filter_window': 5
         }
         
     def debug_roi_colors(self, img, roi_index=0):

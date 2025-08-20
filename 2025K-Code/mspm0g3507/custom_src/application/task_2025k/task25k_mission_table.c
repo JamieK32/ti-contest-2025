@@ -1,4 +1,4 @@
-
+#include "task25k_config.h"
 #include "common_include.h"
 #include "periodic_event_task.h"
 #include "log.h"
@@ -25,15 +25,17 @@ period_task_t task_table[] = {
    { EVENT_PERIOD_PRINT,      IDLE, debug_task,           500, 0 },    // 500ms
    { EVENT_ALERT,             RUN,  alert_ticks,          10,  0 },    // 10ms
    { EVENT_CAR_STATE_MACHINE, IDLE, car_state_machine,    20,  0 },    // 20ms
-   { EVENT_CAR,               RUN,  car_task,             20,  0 },    // 20ms
+   { EVENT_CAR,               IDLE, car_task,             20,  0 },    // 20ms
 	 { EVENT_MUSIC_PLAYER,      RUN,  music_player_update,  5,   0 }, 		// 5ms
 #if CURRENT_IMU == WIT_GYRO
-	 { EVENT_IMU_UPDATE,			  RUN,  wit_imu_process, 			 10,   0 }, 	  // 2ms
+	 { EVENT_IMU_UPDATE,			  RUN,  wit_imu_process, 			 10,   0 }, 	  // 10ms
 #elif CURRENT_IMU == MPU6050_GYRO
-	 { EVENT_IMU_UPDATE,			  RUN,  mpu6050_dmp_update, 	 10,   0 }, 	  // 2ms
+	 { EVENT_IMU_UPDATE,			  RUN,  mpu6050_dmp_update, 	 10,   0 }, 	  // 10ms
 #elif (CURRENT_IMU == IMU660RA_GYRO)
 	 { EVENT_IMU_UPDATE,			  RUN,  imu_update,	 			     5,   0  },
-#endif
+#elif (CURRENT_IMU == LSM6DSV16X_GYRO)
+	 { EVENT_IMU_UPDATE,			  RUN,  Read_LSM6DSV16X, 			 10,   0 }, 	  // 10ms
+#endif 
 	 { EVENT_MAIXCAM, 					RUN,  camera_process,        1,    0 },
 };
 

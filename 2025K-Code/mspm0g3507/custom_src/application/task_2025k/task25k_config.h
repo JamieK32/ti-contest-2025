@@ -23,8 +23,9 @@ void menu_init_and_create(void);
 #define WIT_GYRO 1
 #define MPU6050_GYRO 2
 #define IMU660RA_GYRO 3
+#define LSM6DSV16X_GYRO 4
 
-#define CURRENT_IMU WIT_GYRO
+#define CURRENT_IMU LSM6DSV16X_GYRO
 
 void setup_cam_protocol(void);
 extern maixCam_t maix_cam;

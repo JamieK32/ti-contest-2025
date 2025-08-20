@@ -20,11 +20,13 @@ soft_iic_info_struct lsm6dsv16x_i2c = {
     .sdaIOMUX = PORTA_SDA2_IOMUX,
     .sdaPin = PORTA_SDA2_PIN,
     .sdaPort = PORTA_PORT,
-    .delay_time = 0,
+    .delay_time = 1,
     .addr = LSM6DSV16X_ADDR  // LSM6DSV16X地址
 };
 static uint8_t whoamI;
 static lsm6dsv16x_fifo_sflp_raw_t fifo_sflp;
+static float lsm6dsv16x_yaw_offset = 0.0f;
+static float lsm6dsv16x_yaw_raw = 0.0f;
 
 lsm6dsv16x_fifo_status_t fifo_status;
 stmdev_ctx_t dev_ctx;
@@ -38,6 +40,15 @@ float lsm6dsv16x_pitch, lsm6dsv16x_roll, lsm6dsv16x_yaw;
 static int32_t platform_write(void *handle, uint8_t reg, const uint8_t *bufp, uint16_t len);
 static int32_t platform_read(void *handle, uint8_t reg, uint8_t *bufp, uint16_t len);
 static void platform_delay(uint32_t ms);
+
+
+// 角度归一化到 [-180, 180)
+static float normalize_deg(float a)
+{
+    while (a >= 180.0f) a -= 360.0f;
+    while (a <  -180.0f) a += 360.0f;
+    return a;
+}
 
 // 四元数转欧拉角函数保持不变
 static void quat_to_euler(const float q[4], float *roll, float *pitch, float *yaw)
@@ -120,11 +131,25 @@ void LSM6DSV16X_Init(void)
     /* Wait sensor boot time */
     platform_delay(BOOT_TIME);
 
-    /* Check device ID */
-    lsm6dsv16x_device_id_get(&dev_ctx, &whoamI);
-
-    if (whoamI != LSM6DSV16X_ID)
-    {
+    /* Busy-wait until device responds correctly */
+    const uint32_t max_retry_count = 100;  // 最多重试100次
+    uint32_t retry_count = 0;
+    
+    do {
+        /* Check device ID */
+        lsm6dsv16x_device_id_get(&dev_ctx, &whoamI);
+        
+        if (whoamI == LSM6DSV16X_ID) {
+            break;  // 设备响应正确，退出循环
+        }
+        
+        retry_count++;
+        platform_delay(10);  // 等待10ms后重试
+        
+    } while (retry_count < max_retry_count);
+    
+    /* 如果超过最大重试次数仍未成功，直接返回 */
+    if (whoamI != LSM6DSV16X_ID) {
         return;
     }
 
@@ -160,6 +185,31 @@ void LSM6DSV16X_Init(void)
     pin_int.drdy_xl = PROPERTY_ENABLE;
     lsm6dsv16x_pin_int2_route_set(&dev_ctx, &pin_int);
     lsm6dsv16x_data_ready_mode_set(&dev_ctx, LSM6DSV16X_DRDY_PULSED);
+		
+	 const uint32_t timeout_ms = 200;   // 最多等 200ms
+		uint32_t waited = 0;
+		lsm6dsv16x_fifo_status_t st;
+
+		// 简单轮询直到拿到一帧 SFLP 四元数
+		while (waited < timeout_ms) {
+				lsm6dsv16x_fifo_status_get(&dev_ctx, &st);
+				if (st.fifo_level > 0) {
+						lsm6dsv16x_fifo_out_raw_t f_data;
+						lsm6dsv16x_fifo_out_raw_get(&dev_ctx, &f_data);
+
+						if (f_data.tag == LSM6DSV16X_SFLP_GAME_ROTATION_VECTOR_TAG) {
+								// 计算当下 yaw（度），作为初始偏移
+								sflp2q(lsm6dsv16x_quat, &f_data.data[0]);
+								float r, p, y;
+								quat_to_euler(lsm6dsv16x_quat, &r, &p, &y);
+								lsm6dsv16x_yaw_offset = y;  // 记录初始角度（度）
+								break;
+						}
+				} else {
+						platform_delay(5);
+						waited += 5;
+				}
+		}
 }
 
 void Read_LSM6DSV16X(void)
@@ -184,10 +234,12 @@ void Read_LSM6DSV16X(void)
         
         switch (f_data.tag) 
         {
-            case LSM6DSV16X_SFLP_GAME_ROTATION_VECTOR_TAG:
-                sflp2q(lsm6dsv16x_quat, &f_data.data[0]);
-                quat_to_euler(lsm6dsv16x_quat, &lsm6dsv16x_roll, &lsm6dsv16x_pitch, &lsm6dsv16x_yaw);
-                break;
+						case LSM6DSV16X_SFLP_GAME_ROTATION_VECTOR_TAG:
+								sflp2q(lsm6dsv16x_quat, &f_data.data[0]);
+								quat_to_euler(lsm6dsv16x_quat, &lsm6dsv16x_roll, &lsm6dsv16x_pitch, &lsm6dsv16x_yaw_raw);
+								// 应用偏移与归一化
+								lsm6dsv16x_yaw = normalize_deg(lsm6dsv16x_yaw_raw - lsm6dsv16x_yaw_offset);
+								break;
             case LSM6DSV16X_XL_NC_TAG:
                 lsm6dsv16x_accel[0] = lsm6dsv16x_from_fs4_to_mg(datax);
                 lsm6dsv16x_accel[1] = lsm6dsv16x_from_fs4_to_mg(datay);
@@ -251,4 +303,9 @@ static int32_t platform_read(void *handle, uint8_t reg, uint8_t *bufp, uint16_t 
 static void platform_delay(uint32_t ms)
 {
    delay_ms(ms);
+}
+
+void LSM6DSV16X_RezeroYaw(void)
+{
+    lsm6dsv16x_yaw_offset = normalize_deg(lsm6dsv16x_yaw_raw);
 }
