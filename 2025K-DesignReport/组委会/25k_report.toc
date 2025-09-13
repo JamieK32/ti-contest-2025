@@ -1,0 +1,11 @@
+\contentsline {section}{\numberline {1}方案设计与论证}{1}{}%
+\contentsline {subsection}{\numberline {1.1}系统整体方案}{1}{}%
+\contentsline {subsection}{\numberline {1.2}关键技术方案选择}{2}{}%
+\contentsline {section}{\numberline {2}理论分析与计算}{3}{}%
+\contentsline {subsection}{\numberline {2.1}运动学建模与分析}{3}{}%
+\contentsline {subsection}{\numberline {2.2}控制系统设计}{3}{}%
+\contentsline {section}{\numberline {3}电路与程序设计}{5}{}%
+\contentsline {subsection}{\numberline {3.1}硬件系统架构}{5}{}%
+\contentsline {subsection}{\numberline {3.2}圆柱侦测设计}{5}{}%
+\contentsline {subsection}{\numberline {3.3}程序架构}{6}{}%
+\contentsline {section}{\numberline {4}总结}{7}{}%
