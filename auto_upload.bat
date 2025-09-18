@@ -14,7 +14,19 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
+git diff --cached --quiet
+if %errorlevel% equ 0 (
+    echo No changes to commit, skipping...
+    goto :end
+)
+
 git commit -m "Daily auto commit - %date% %time%"
+if %errorlevel% neq 0 (
+    echo Error: git commit failed
+    pause
+    exit /b 1
+)
+
 git push origin main
 if %errorlevel% neq 0 (
     echo Error: git push failed
@@ -22,4 +34,5 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
+:end
 echo [%date% %time%] Auto push completed.
