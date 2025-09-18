@@ -1,0 +1,130 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.1.2 Chrome/138.0.7204.243 Electron/37.4.0 Safari/537.36" version="28.1.2">
+  <diagram name="系统整体流程图" id="system-flow">
+    <mxGraphModel dx="1402" dy="825" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F4FD;strokeColor=none;shadow=0;" parent="1" vertex="1">
+          <mxGeometry x="60" y="40" width="700" height="590" as="geometry" />
+        </mxCell>
+        <mxCell id="title-1" value="智能车系统架构" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#1A73E8;" parent="1" vertex="1">
+          <mxGeometry x="340" y="60" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="top-layer" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4E6;strokeColor=#FFB366;strokeWidth=2;shadow=1;fontSize=15;" parent="1" vertex="1">
+          <mxGeometry x="100" y="110" width="620" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="top-title" value="上层任务状态机" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontStyle=1;fontColor=#FF6B35;" parent="1" vertex="1">
+          <mxGeometry x="110" y="115" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="task-1" value="巡线任务" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FFB366;strokeWidth=1.5;fontSize=15;fontColor=#333333;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="120" y="150" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="task-2" value="避障任务" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FFB366;strokeWidth=1.5;fontSize=15;fontColor=#333333;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="230" y="150" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="task-3" value="停车任务" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FFB366;strokeWidth=1.5;fontSize=15;fontColor=#333333;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="150" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="task-4" value="速度规划" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FFB366;strokeWidth=1.5;fontSize=15;fontColor=#333333;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="450" y="150" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="task-scheduler" value="实时调度器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE5CC;strokeColor=#FFB366;strokeWidth=1.5;fontSize=15;fontColor=#333333;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="560" y="150" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="middle-layer" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E8;strokeColor=#66BB6A;strokeWidth=2;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="100" y="240" width="620" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="middle-title" value="中层运动控制" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontStyle=1;fontColor=#2E7D32;" parent="1" vertex="1">
+          <mxGeometry x="110" y="245" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mcu-core" value="MSPM0G3507&#xa;主控制器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#2E7D32;strokeWidth=2;fontSize=16;fontColor=#FFFFFF;fontStyle=1;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="275" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vision-proc" value="视觉协处理器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#66BB6A;strokeWidth=1.5;fontSize=15;fontColor=#333333;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="120" y="285" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="motion-ctrl" value="运动控制算法" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#66BB6A;strokeWidth=1.5;fontSize=15;fontColor=#333333;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="490" y="285" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="comm-module" value="通信模块" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#66BB6A;strokeWidth=1.5;fontSize=15;fontColor=#333333;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="610" y="285" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bottom-layer" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#AB47BC;strokeWidth=2;shadow=1;fontSize=15;" parent="1" vertex="1">
+          <mxGeometry x="100" y="390" width="620" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="bottom-title" value="底层速度PID控制" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontStyle=1;fontColor=#6A1B9A;" parent="1" vertex="1">
+          <mxGeometry x="110" y="395" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="pid-ctrl" value="PID控制器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#AB47BC;strokeWidth=1.5;fontSize=15;fontColor=#333333;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="120" y="430" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="motor-driver" value="电机驱动" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#AB47BC;strokeWidth=1.5;fontSize=15;fontColor=#333333;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="230" y="430" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="encoder" value="编码器反馈" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#AB47BC;strokeWidth=1.5;fontSize=15;fontColor=#333333;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="430" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="speed-calc" value="速度计算" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#AB47BC;strokeWidth=1.5;fontSize=15;fontColor=#333333;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="450" y="430" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pwm-gen" value="PWM生成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#AB47BC;strokeWidth=1.5;fontSize=15;fontColor=#333333;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="560" y="430" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hal-layer" value="硬件抽象层 (HAL)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#757575;strokeWidth=2;fontSize=15;fontColor=#333333;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="100" y="510" width="620" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sensor-group" value="传感器接口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#FFC107;strokeWidth=1.5;fontSize=15;fontColor=#333333;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="100" y="570" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="power-mgmt" value="电源管理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#FFC107;strokeWidth=1.5;fontSize=15;fontColor=#333333;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="230" y="570" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="timer-int" value="定时器中断" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#FFC107;strokeWidth=1.5;fontSize=15;fontColor=#333333;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="360" y="570" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uart-spi" value="UART/SPI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#FFC107;strokeWidth=1.5;fontSize=15;fontColor=#333333;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="490" y="570" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gpio-ctrl" value="GPIO控制" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#FFC107;strokeWidth=1.5;fontSize=15;fontColor=#333333;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="620" y="570" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-1" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;curved=1;fontSize=15;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="210" as="sourcePoint" />
+            <mxPoint x="400" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-2" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;curved=1;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="360" as="sourcePoint" />
+            <mxPoint x="400" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-3" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;curved=1;fontSize=15;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="490" as="sourcePoint" />
+            <mxPoint x="400" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-4" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;curved=1;fontSize=15;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="550" as="sourcePoint" />
+            <mxPoint x="400" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="data-flow-1" value="" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=1.5;strokeColor=#4CAF50;curved=1;dashed=1;fontSize=15;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="305" as="sourcePoint" />
+            <mxPoint x="340" y="305" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="data-flow-2" value="" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=1.5;strokeColor=#4CAF50;curved=1;dashed=1;fontSize=15;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="460" y="305" as="sourcePoint" />
+            <mxPoint x="490" y="305" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

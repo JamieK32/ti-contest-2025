@@ -157,18 +157,18 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>14</LineNumber>
+          <LineNumber>125</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>862</Address>
+          <Address>740</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\..\custom_src\core\system\mspm0g3507_it.c</Filename>
+          <Filename>..\..\custom_src\core\main.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\EmbedBolt316\../../custom_src/core/system/mspm0g3507_it.c\14</Expression>
+          <Expression>\\\../../custom_src/core/main.c\125</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>

@@ -1,0 +1,103 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.1.2 Chrome/138.0.7204.243 Electron/37.4.0 Safari/537.36" version="28.1.2">
+  <diagram name="系统架构图" id="zpYJy7UNslfAHIhOI37q">
+    <mxGraphModel dx="2004" dy="1252" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="QSAW4HEWbuxJw-s14adC-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;opacity=30;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="1174" y="766" width="983" height="646" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=url(#gradient1);strokeColor=none;shadow=1;arcSize=5;" parent="1" vertex="1">
+          <mxGeometry x="1375" y="819" width="560" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-3" value="" style="linearGradient;direction=east;gradientColor=#667eea;fillColor=#764ba2;rounded=1;glass=0;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="1375" y="819" width="560" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-4" value="⚙️ 状态机任务调度系统架构" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;fontStyle=1;fontColor=#FFFFFF;fontFamily=Microsoft YaHei;" parent="1" vertex="1">
+          <mxGeometry x="1375" y="839" width="560" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-5" value="" style="group;fontSize=17;" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="1235" y="919" width="840" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-6" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#64b5f6;strokeWidth=2;shadow=1;arcSize=8;dashed=0;dashPattern=1 1;fontSize=17;" parent="QSAW4HEWbuxJw-s14adC-5" vertex="1">
+          <mxGeometry width="840" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-7" value="状态机层" style="text;html=1;strokeColor=none;fillColor=#1976d2;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=17;fontStyle=1;fontColor=#FFFFFF;shadow=1;" parent="QSAW4HEWbuxJw-s14adC-5" vertex="1">
+          <mxGeometry x="10" y="10" width="90" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-8" value="📊 状态机引擎" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2196f3;strokeColor=#1976d2;fontSize=17;fontStyle=1;fontColor=#FFFFFF;shadow=1;arcSize=10;strokeWidth=2;" parent="QSAW4HEWbuxJw-s14adC-5" vertex="1">
+          <mxGeometry x="380" y="50" width="140" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-9" value="📋 状态表" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#64b5f6;strokeColor=#42a5f5;fontColor=#FFFFFF;shadow=1;arcSize=8;fontSize=17;" parent="QSAW4HEWbuxJw-s14adC-5" vertex="1">
+          <mxGeometry x="120" y="55" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-10" value="⚡ 动作执行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#64b5f6;strokeColor=#42a5f5;fontColor=#FFFFFF;shadow=1;arcSize=8;fontSize=17;" parent="QSAW4HEWbuxJw-s14adC-5" vertex="1">
+          <mxGeometry x="250" y="55" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-11" value="🔍 条件判断" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#64b5f6;strokeColor=#42a5f5;fontColor=#FFFFFF;shadow=1;arcSize=8;fontSize=17;" parent="QSAW4HEWbuxJw-s14adC-5" vertex="1">
+          <mxGeometry x="540" y="55" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-12" value="&lt;font&gt;⏰ 超时保护&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#64b5f6;strokeColor=#42a5f5;fontColor=#FFFFFF;shadow=1;arcSize=8;fontSize=17;" parent="QSAW4HEWbuxJw-s14adC-5" vertex="1">
+          <mxGeometry x="670" y="55" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-13" value="" style="group;fontSize=17;" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="1235" y="1079" width="840" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-14" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ffb74d;strokeWidth=2;shadow=1;arcSize=8;fontSize=17;" parent="QSAW4HEWbuxJw-s14adC-13" vertex="1">
+          <mxGeometry width="840" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-15" value="应用层" style="text;html=1;strokeColor=none;fillColor=#ff6f00;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=17;fontStyle=1;fontColor=#FFFFFF;shadow=1;" parent="QSAW4HEWbuxJw-s14adC-13" vertex="1">
+          <mxGeometry x="10" y="10" width="90" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-16" value="&lt;div style=&quot;line-height: 1.4;&quot;&gt;🔄 编码器读取&lt;/div&gt;&lt;div style=&quot;margin-top: 8px;&quot;&gt;&lt;span style=&quot;background-color:#fff3e0;padding:3px 8px;border-radius:12px;display:inline-block;&quot;&gt;&lt;b style=&quot;color:#d32f2f&quot;&gt;5ms&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4fc3f7;strokeColor=#29b6f6;fontColor=#FFFFFF;shadow=1;arcSize=12;strokeWidth=2;spacingTop=8;spacingBottom=8;fontSize=17;" parent="QSAW4HEWbuxJw-s14adC-13" vertex="1">
+          <mxGeometry x="120" y="35" width="130" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-17" value="&lt;div style=&quot;line-height: 1.4;&quot;&gt;📡 IMU更新&lt;/div&gt;&lt;div style=&quot;margin-top: 8px;&quot;&gt;&lt;span style=&quot;background-color:#e8f5e9;padding:3px 8px;border-radius:12px;display:inline-block;&quot;&gt;&lt;b style=&quot;color:#2e7d32&quot;&gt;10ms&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66bb6a;strokeColor=#4caf50;fontColor=#FFFFFF;shadow=1;arcSize=12;strokeWidth=2;spacingTop=8;spacingBottom=8;fontSize=17;" parent="QSAW4HEWbuxJw-s14adC-13" vertex="1">
+          <mxGeometry x="270" y="35" width="130" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-18" value="&lt;div style=&quot;line-height: 1.4;&quot;&gt;🚗 小车控制&lt;/div&gt;&lt;div style=&quot;margin-top: 8px;&quot;&gt;&lt;span style=&quot;background-color:#ffebee;padding:3px 8px;border-radius:12px;display:inline-block;&quot;&gt;&lt;b style=&quot;color:#c62828&quot;&gt;20ms&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ef5350;strokeColor=#e53935;fontColor=#FFFFFF;shadow=1;arcSize=12;strokeWidth=2;spacingTop=8;spacingBottom=8;fontSize=17;" parent="QSAW4HEWbuxJw-s14adC-13" vertex="1">
+          <mxGeometry x="420" y="35" width="130" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-19" value="&lt;div style=&quot;line-height: 1.4;&quot;&gt;👤 用户接口&lt;/div&gt;&lt;div style=&quot;margin-top: 8px;&quot;&gt;&lt;span style=&quot;background-color:#f3e5f5;padding:3px 8px;border-radius:12px;display:inline-block;&quot;&gt;&lt;b style=&quot;color:#6a1b9a&quot;&gt;50ms&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ab47bc;strokeColor=#9c27b0;fontColor=#FFFFFF;shadow=1;arcSize=12;strokeWidth=2;spacingTop=8;spacingBottom=8;fontSize=17;" parent="QSAW4HEWbuxJw-s14adC-13" vertex="1">
+          <mxGeometry x="570" y="35" width="130" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-20" value="&lt;div style=&quot;line-height: 1.4;&quot;&gt;🐛 调试输出&lt;/div&gt;&lt;div style=&quot;margin-top: 8px;&quot;&gt;&lt;span style=&quot;background-color:#eceff1;padding:3px 8px;border-radius:12px;display:inline-block;&quot;&gt;&lt;b style=&quot;color:#455a64&quot;&gt;500ms&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#78909c;strokeColor=#607d8b;fontColor=#FFFFFF;shadow=1;arcSize=12;strokeWidth=2;spacingTop=8;spacingBottom=8;fontSize=17;" parent="QSAW4HEWbuxJw-s14adC-13" vertex="1">
+          <mxGeometry x="720" y="35" width="110" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-21" value="" style="group;fontSize=17;" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="1235" y="1239" width="840" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-22" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f2f1;strokeColor=#4db6ac;strokeWidth=2;shadow=1;arcSize=8;fontSize=17;" parent="QSAW4HEWbuxJw-s14adC-21" vertex="1">
+          <mxGeometry width="840" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-23" value="硬件层" style="text;html=1;strokeColor=none;fillColor=#00897b;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=17;fontStyle=1;fontColor=#FFFFFF;shadow=1;" parent="QSAW4HEWbuxJw-s14adC-21" vertex="1">
+          <mxGeometry x="10" y="10" width="90" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-24" value="💻 MCU" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#26a69a;strokeColor=#00897b;fontColor=#FFFFFF;shadow=1;arcSize=10;strokeWidth=2;fontSize=17;" parent="QSAW4HEWbuxJw-s14adC-21" vertex="1">
+          <mxGeometry x="120" y="40" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-25" value="🎯 IMU" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#26a69a;strokeColor=#00897b;fontColor=#FFFFFF;shadow=1;arcSize=10;strokeWidth=2;fontSize=17;" parent="QSAW4HEWbuxJw-s14adC-21" vertex="1">
+          <mxGeometry x="240" y="40" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-26" value="⚙️ 编码器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#26a69a;strokeColor=#00897b;fontColor=#FFFFFF;shadow=1;arcSize=10;strokeWidth=2;fontSize=17;" parent="QSAW4HEWbuxJw-s14adC-21" vertex="1">
+          <mxGeometry x="360" y="40" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-27" value="🔌 电机" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#26a69a;strokeColor=#00897b;fontColor=#FFFFFF;shadow=1;arcSize=10;strokeWidth=2;fontSize=17;" parent="QSAW4HEWbuxJw-s14adC-21" vertex="1">
+          <mxGeometry x="480" y="40" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-28" value="📡 串口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#26a69a;strokeColor=#00897b;fontColor=#FFFFFF;shadow=1;arcSize=10;strokeWidth=2;fontSize=17;" parent="QSAW4HEWbuxJw-s14adC-21" vertex="1">
+          <mxGeometry x="600" y="40" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-29" value="🖥️ 显示" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#26a69a;strokeColor=#00897b;fontColor=#FFFFFF;shadow=1;arcSize=10;strokeWidth=2;fontSize=17;" parent="QSAW4HEWbuxJw-s14adC-21" vertex="1">
+          <mxGeometry x="720" y="40" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-32" value="⚡" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;fontColor=#ffd54f;opacity=20;rotation=-15;" parent="1" vertex="1">
+          <mxGeometry x="2015" y="939" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="QSAW4HEWbuxJw-s14adC-33" value="🔧" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;fontColor=#81c784;opacity=20;rotation=15;" parent="1" vertex="1">
+          <mxGeometry x="1255" y="1149" width="40" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

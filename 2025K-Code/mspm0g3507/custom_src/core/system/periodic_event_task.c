@@ -55,6 +55,7 @@ void periodic_event_task_process(void) {
         if (task->is_running == RUN && task->task_handler != NULL) {
             // 计算距离上次执行的时间
             uint32_t time_since_last_run = current_time - task->last_run_time_ms;
+					
             
             // 检查是否到了执行时间
             if (time_since_last_run >= task->period_ms) {

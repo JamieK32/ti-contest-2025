@@ -125,6 +125,7 @@ void system_init(void)
 		beep_init();
 		systick_init();
 		car_init();
+
 }
 
 void main_task_init(void) 
