@@ -300,12 +300,15 @@ tests/unit_tests/bluetooth_test.c       # 蓝牙通信测试
 - ⚡ **高性能优化**: 实时性保证、资源利用最优化
 - 🧪 **完整测试覆盖**: 单元测试、集成测试、性能基准
 
-### 🏅 竞赛胜利保证
-- 📝 **完整设计报告**: LaTeX排版、专业图表、详细分析
-- 🔧 **可靠硬件设计**: 专业PCB设计、EMC优化、工业级可靠性
-- 💻 **高质量软件**: 模块化设计、代码复用、易维护扩展
-- ⏱️ **严格时间要求**: 所有任务均在规定时间内完成，留有安全余量
-- 🎖️ **技术创新**: 多项创新技术，获得加分评价
+## 展示图
+
+- <p align="center">
+    <img src="images/image1.jpg" width="45%" />
+    <img src="images/image2.jpg" width="45%" />
+  </p>
+  <p align="center">
+    <img src="images/certificate.jpg" width="85%" />
+  </p>
 
 ---
 
@@ -316,3 +319,4 @@ tests/unit_tests/bluetooth_test.c       # 蓝牙通信测试
 - 📱 QQ: 2428956158 
 
 **🎉 祝愿使用本方案的队伍在TI杯竞赛中取得满分佳绩！**
+
